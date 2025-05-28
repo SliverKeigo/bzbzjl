@@ -24,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/avatar.png" type="image/png" />
+      </head>
       <body
       
       >
