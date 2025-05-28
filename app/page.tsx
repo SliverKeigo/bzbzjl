@@ -106,10 +106,10 @@ export default function Home() {
           // 初始状态和进度状态
           <MagicCard
             gradientColor={theme === "dark" ? "#6C4DD6" : "#8B5CF6"}
-            className="relative w-full max-w-[98vw] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px] min-h-[60vw] sm:min-h-[400px] md:min-h-[500px] rounded-3xl flex flex-col items-center justify-center bg-white shadow-xl p-4 sm:p-6 md:p-8"
+            className="relative w-full max-w-[98vw] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px] min-h-[60vw] sm:min-h-[400px] md:min-h-[500px] rounded-3xl flex flex-col items-center justify-center bg-white shadow-xl p-2 xs:p-4 sm:p-6 md:p-8"
           >
             {showProgress ? (
-              <div className="flex flex-col items-center w-full max-w-[95%] xs:max-w-[380px] sm:max-w-[480px] md:max-w-[580px] lg:max-w-[780px] xl:max-w-[980px]">
+              <div className="flex flex-col items-center w-full max-w-[96%] sm:max-w-[480px] md:max-w-[580px] lg:max-w-[780px] xl:max-w-[980px]">
                 <span className="mb-2 text-base sm:text-lg font-medium text-[#6C4DD6]">做局进度</span>
                 <div className="w-full h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner relative flex items-center shimmer-effect">
                   <div
@@ -123,7 +123,7 @@ export default function Home() {
                 <div className="mt-4 w-full text-center text-[#6C4DD6] text-xs sm:text-sm md:text-base font-medium min-h-[1.5em] relative max-w-full">
                   <span
                     key={currentStep}
-                    className="left-1/2 -translate-x-1/2 w-full animate-fade-in-up"
+                    className="inline-block w-full text-center animate-fade-in-up whitespace-nowrap"
                   >
                     {progressSteps[currentStep]}
                   </span>
