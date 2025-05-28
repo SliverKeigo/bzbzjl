@@ -18,13 +18,6 @@ export default function Home() {
   const [showExit, setShowExit] = useState(false);
   const [buttonText, setButtonText] = useState("分享给朋友");
 
-  const shareMessages = [
-    '🤡 "资本做局器"你敢来挑战吗？',
-    '🤣 "资本做局器"你敢来挑战吗？',
-    '🤪 "资本做局器"你敢来挑战吗？',
-    '😜 "资本做局器"你敢来挑战吗？',
-    '🎯 "资本做局器"你敢来挑战吗？',
-  ];
   const progressSteps = [
     "正在准备资本布局...",
     "正在分析市场情况...",
