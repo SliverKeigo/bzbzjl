@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link rel="icon" href="/avatar.png" type="image/png" />
-        <meta itemProp="name" content="我的小玩具 - 分享卡片" />
+        <meta itemProp="name" content="资本做局器 - 分享卡片" />
         <meta itemProp="description" content="我操！又被资本做局了！" />
         <meta itemProp="image" content="/avatar.png" />
         <meta name="description" content="我操！又被资本做局了！" />
