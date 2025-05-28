@@ -16,7 +16,6 @@ export default function Home() {
   const [isDone, setIsDone] = useState(false);
   const [lastStep, setLastStep] = useState(0);
   const [showExit, setShowExit] = useState(false);
-  const [buttonText, setButtonText] = useState("分享给朋友");
 
   const progressSteps = [
     "正在准备资本布局...",
