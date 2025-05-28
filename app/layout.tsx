@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "资本做局器",
   description: "我操！又被资本做局了！",
+  other: {
+    "itemprop:name": "资本做局器",
+    "itemprop:description": "我操！又被资本做局了！",
+    "itemprop:image": "/avatar.png",
+  },
 };
 
 export default function RootLayout({
@@ -27,6 +32,10 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link rel="icon" href="/avatar.png" type="image/png" />
+        <meta itemProp="name" content="我的小玩具 - 分享卡片" />
+        <meta itemProp="description" content="我操！又被资本做局了！" />
+        <meta itemProp="image" content="/avatar.png" />
+        <meta name="description" content="我操！又被资本做局了！" />
       </head>
       <body
       
