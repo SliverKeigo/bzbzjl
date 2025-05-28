@@ -16,7 +16,15 @@ export default function Home() {
   const [isDone, setIsDone] = useState(false);
   const [lastStep, setLastStep] = useState(0);
   const [showExit, setShowExit] = useState(false);
+  const [buttonText, setButtonText] = useState("分享给朋友");
 
+  const shareMessages = [
+    '🤡 "资本做局器"你敢来挑战吗？',
+    '🤣 "资本做局器"你敢来挑战吗？',
+    '🤪 "资本做局器"你敢来挑战吗？',
+    '😜 "资本做局器"你敢来挑战吗？',
+    '🎯 "资本做局器"你敢来挑战吗？',
+  ];
   const progressSteps = [
     "正在准备资本布局...",
     "正在分析市场情况...",
@@ -98,25 +106,12 @@ export default function Home() {
           // 初始状态和进度状态
           <MagicCard
             gradientColor={theme === "dark" ? "#6C4DD6" : "#8B5CF6"}
-            className="relative w-full max-w-[98vw] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px] min-h-[60vw] sm:min-h-[400px] md:min-h-[500px] rounded-3xl flex flex-col items-center bg-white shadow-xl p-4 sm:p-6 md:p-8"
+            className="relative w-full max-w-[98vw] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px] min-h-[60vw] sm:min-h-[400px] md:min-h-[500px] rounded-3xl flex flex-col items-center justify-center bg-white shadow-xl p-4 sm:p-6 md:p-8"
           >
-            {/* 头像 */}
-            <div className="flex justify-center w-full mb-6 sm:mb-8">
-              <div className="rounded-full shadow-lg ring-4 ring-white overflow-hidden w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white">
-                <Image src="/avatar.png" width={96} height={96} alt="avatar" className="w-full h-full object-cover" />
-              </div>
-            </div>
-
-            {/* 标题 */}
-            <div className="mb-8 sm:mb-12">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#6C4DD6] tracking-wide">资本做局器</h1>
-            </div>
-
-            {/* 按钮区/进度条区 */}
             {showProgress ? (
-              <div className="flex flex-col items-center w-full max-w-xs sm:max-w-sm mt-auto mb-6 sm:mb-8">
+              <div className="flex flex-col items-center w-full max-w-[95%] xs:max-w-[380px] sm:max-w-[480px] md:max-w-[580px] lg:max-w-[780px] xl:max-w-[980px]">
                 <span className="mb-2 text-base sm:text-lg font-medium text-[#6C4DD6]">做局进度</span>
-                <div className="w-full h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner relative flex items-center shimmer-effect max-w-xs sm:max-w-sm">
+                <div className="w-full h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner relative flex items-center shimmer-effect">
                   <div
                     className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-100"
                     style={{ width: `${progress}%` }}
@@ -125,29 +120,42 @@ export default function Home() {
                     {Math.round(progress)}%
                   </span>
                 </div>
-                <div className="mt-4 w-full text-center text-[#6C4DD6] text-xs sm:text-sm md:text-base font-medium min-h-[1.2em] relative h-5 max-w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                <div className="mt-4 w-full text-center text-[#6C4DD6] text-xs sm:text-sm md:text-base font-medium min-h-[1.5em] relative max-w-full">
                   <span
                     key={currentStep}
-                    className="absolute left-1/2 -translate-x-1/2 w-full animate-fade-in-up"
+                    className="left-1/2 -translate-x-1/2 w-full animate-fade-in-up"
                   >
                     {progressSteps[currentStep]}
                   </span>
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full mx-auto mt-auto mb-6 sm:mb-8">
-                <button
-                  className="flex-1 h-11 sm:h-12 md:h-14 md:w-auto lg:w-xs text-sm sm:text-base md:text-lg font-bold flex flex-row items-center justify-center gap-3 rounded-2xl shadow-lg text-white bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 transition shimmer-effect"
-                  onClick={() => setShowProgress(true)}
-                >
-                  🎯 开始做局
-                </button>
-                <button
-                  className="flex-1 h-11 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg font-bold flex flex-row  items-center justify-center gap-3 rounded-2xl shadow-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition border border-gray-200 shimmer-effect"
-                  onClick={handleExit}
-                >
-                  🚪 退出
-                </button>
+              <div>
+                <div className="flex justify-center w-full mb-6 sm:mb-8">
+                  <div className="rounded-full shadow-lg ring-4 ring-white overflow-hidden w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white">
+                    <Image src="/avatar.png" width={96} height={96} alt="avatar" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+
+                <div className="mb-8 sm:mb-12">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#6C4DD6] tracking-wide">资本做局器</h1>
+                </div>
+
+
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full mx-auto mt-auto mb-6 sm:mb-8">
+                  <button
+                    className="flex-1 h-11 sm:h-12 md:h-14 md:w-auto lg:w-xs text-sm sm:text-base md:text-lg font-bold flex flex-row items-center justify-center gap-3 rounded-2xl shadow-lg text-white bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 transition shimmer-effect"
+                    onClick={() => setShowProgress(true)}
+                  >
+                    🎯 开始做局
+                  </button>
+                  <button
+                    className="flex-1 h-11 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg font-bold flex flex-row  items-center justify-center gap-3 rounded-2xl shadow-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition border border-gray-200 shimmer-effect"
+                    onClick={handleExit}
+                  >
+                    🚪 退出
+                  </button>
+                </div>
               </div>
             )}
           </MagicCard>
