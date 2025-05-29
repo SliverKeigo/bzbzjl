@@ -65,10 +65,46 @@ export default function Home() {
     setProgress(0);
   };
 
+  // 分享文案
+  const shareTitles = [
+    '资本做局器',
+    '神秘做局计划',
+    '资本布局大师',
+    '资本运作模拟器'
+  ];
+
+  const shareTexts = [
+    '来看看我的做局进度！',
+    '我的资本布局即将完成！',
+    '这个做局计划太精彩了！',
+    '见证资本运作的奇迹！',
+    '我的做局计划即将成功！',
+    '来看看这个完美的资本布局！',
+    '这个做局计划太厉害了！',
+    '我的资本运作即将完成！'
+  ];
+
+  // 获取随机文案
+  const getRandomItem = (array: string[]) => {
+    return array[Math.floor(Math.random() * array.length)];
+  };
+
   // 分享功能
-  const handleShare = () => {
-    // 这里可以添加分享逻辑
-    console.log("分享功能");
+  const handleShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: getRandomItem(shareTitles),
+          text: getRandomItem(shareTexts),
+          url: window.location.href,
+        });
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('链接已复制到剪贴板！');
+      }
+    } catch (error) {
+      console.error('分享失败:', error);
+    }
   };
 
   const handleExit = () => {
